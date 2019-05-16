@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/jpillora/opts"
-	"github.com/jpillora/opts/example/eg-commands-register/foo"
+	"github.com/jpillora/opts-examples/eg-commands-register/foo"
+	"github.com/jpillora/opts-v1"
 )
 
 type cmd struct{}

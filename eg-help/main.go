@@ -18,7 +18,7 @@ func main() {
 
 	opts.New(&c).
 		Name("help").
-		Description("The help program demonstrates how to customise the help text").
+		Summary("The help program demonstrates how to customise the help text").
 		Version("1.0.0").
 		Repo("https://github.com/jpillora/foo").
 		Parse()

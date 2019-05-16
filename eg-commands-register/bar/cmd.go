@@ -3,7 +3,7 @@ package bar
 import (
 	"log"
 
-	"github.com/jpillora/opts"
+	"github.com/jpillora/opts-v1"
 )
 
 func Register(parent opts.Opts) {

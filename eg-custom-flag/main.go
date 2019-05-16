@@ -13,8 +13,8 @@ type Config struct {
 	Mmm   []MagicInt
 	Bar   time.Duration
 	Zee   bool
-	Files []opts.File
-	Dir   opts.Dir
+	Files []File
+	Dir   Dir
 }
 
 func main() {

@@ -3,26 +3,28 @@ package main
 import (
 	"io/ioutil"
 	"log"
-	"os"
 	"path/filepath"
 	"strings"
 
 	"github.com/jpillora/md-tmpl/mdtmpl"
+	"github.com/jpillora/opts"
 )
 
 func main() {
-	egs, err := ioutil.ReadDir(".")
+	type config struct {
+		Directory string `opts:"help=examples directory"`
+		Filter    string `opts:"mode=arg,help=string to filter which examples are generated"`
+	}
+	c := config{Directory: "."}
+	opts.Parse(&c)
+	egs, err := ioutil.ReadDir(c.Directory)
 	check(err)
 	for _, s := range egs {
 		eg := s.Name()
 		if !s.IsDir() || !strings.HasPrefix(eg, "eg-") {
 			continue
 		}
-		f := ""
-		if len(os.Args) >= 2 {
-			f = os.Args[1]
-		}
-		if !strings.Contains(eg, f) {
+		if !strings.Contains(eg, c.Filter) {
 			continue
 		}
 		check(err)

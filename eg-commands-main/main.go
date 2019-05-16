@@ -3,7 +3,7 @@ package main
 import (
 	"log"
 
-	"github.com/jpillora/opts"
+	"github.com/jpillora/opts-v1"
 )
 
 type Config struct{}
@@ -17,7 +17,7 @@ func main() {
 				),
 		).
 		Parse().
-		RunFatal()
+		Run()
 }
 
 type Foo struct {
@@ -25,9 +25,8 @@ type Foo struct {
 	Pong string
 }
 
-func (f *Foo) Run() error {
+func (f *Foo) Run() {
 	log.Printf("foo: %+v", f)
-	return nil
 }
 
 type Bar struct {
@@ -35,7 +34,6 @@ type Bar struct {
 	Zop string
 }
 
-func (b *Bar) Run() error {
+func (b *Bar) Run() {
 	log.Printf("bar: %+v", b)
-	return nil
 }

@@ -9,7 +9,7 @@ import (
 type Config struct {
 	//register commands by including them
 	//in the parent struct
-	Foo  `opts:"mode=cmd,help=This text also becomes commands description text"`
+	Foo  `opts:"mode=cmd,help=This text also becomes commands summary text"`
 	*Bar `opts:"mode=cmd,help=command two of two"`
 }
 

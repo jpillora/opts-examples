@@ -3,8 +3,8 @@ package foo
 import (
 	"log"
 
-	"github.com/jpillora/opts"
-	"github.com/jpillora/opts/example/eg-commands-register/bar"
+	"github.com/jpillora/opts-examples/eg-commands-register/bar"
+	"github.com/jpillora/opts-v1"
 )
 
 func Register(parent opts.Opts) {
