@@ -7,10 +7,11 @@ import (
 )
 
 func main() {
-	config := struct {
+	type config struct {
 		File  string `opts:"help=file to load"`
 		Lines int    `opts:"help=number of lines to show"`
-	}{}
-	opts.Parse(&config)
-	log.Printf("%+v", config)
+	}
+	c := config{}
+	opts.Parse(&c)
+	log.Printf("%+v", c)
 }
