@@ -1,6 +1,6 @@
 ## groups example
 
-<!--tmpl,chomp,code=go:cat main.go -->
+<!--tmpl,code=go:cat main.go -->
 ``` go 
 package main
 
@@ -14,12 +14,12 @@ type Config struct {
 	Fizz string
 	Buzz bool
 	//Foo has an implicit `opts:"mode=embedded,group=Foo"`.
-	//Can be unset with `opts:"group="`.
-	FooBar
+	//Could be be merged with config by unsetting group `opts:"group="`.
+	Foo
 	Ping, Pong int `opts:"group=More"`
 }
 
-type FooBar struct {
+type Foo struct {
 	Bar  int
 	Bazz int
 }
@@ -38,7 +38,7 @@ Group order in the help text is first-use order
 $ eg-groups --help
 ```
 
-<!--tmpl,chomp,code=plain:go build -o eg-groups && ./eg-groups --help ; rm eg-groups -->
+<!--tmpl,code=plain:go build -o eg-groups && ./eg-groups --help ; rm eg-groups -->
 ``` plain 
 
   Usage: eg-groups [options]

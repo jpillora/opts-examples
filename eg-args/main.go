@@ -8,7 +8,7 @@ import (
 
 type Config struct {
 	Shark  string   `opts:"mode=arg"`
-	Octopi []string `opts:"mode=arg,min=2"`
+	Octopi []string `opts:"mode=arg,min=1"`
 }
 
 func main() {

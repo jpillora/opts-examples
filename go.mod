@@ -1,7 +1,5 @@
 module github.com/jpillora/opts-example
 
-replace github.com/jpillora/opts => ../opts-v1
-
 go 1.12
 
 require (

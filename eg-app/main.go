@@ -2,7 +2,7 @@ package main
 
 import (
 	"github.com/jpillora/opts"
-	"github.com/jpillora/opts/example/eg-app/foo"
+	"github.com/jpillora/opts-examples/eg-app/foo"
 )
 
 //set this via ldflags (see https://stackoverflow.com/q/11354518)

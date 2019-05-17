@@ -1,6 +1,6 @@
 ## helloworld example
 
-<!--tmpl,chomp,code=go:cat main.go -->
+<!--tmpl,code=go:cat main.go -->
 ``` go 
 package main
 
@@ -11,12 +11,13 @@ import (
 )
 
 func main() {
-	config := struct {
+	type config struct {
 		File  string `opts:"help=file to load"`
 		Lines int    `opts:"help=number of lines to show"`
-	}{}
-	opts.Parse(&config)
-	log.Printf("%+v", config)
+	}
+	c := config{}
+	opts.Parse(&c)
+	log.Printf("%+v", c)
 }
 ```
 <!--/tmpl-->
@@ -25,9 +26,9 @@ func main() {
 $ eg-helloworld --file zip.txt --lines 42
 ```
 
-<!--tmpl,chomp,code=plain:go run main.go --file zip.txt --lines 42 -->
+<!--tmpl,code=plain:go run main.go --file zip.txt --lines 42 -->
 ``` plain 
-2019/05/12 20:22:08 {File:zip.txt Lines:42}
+2019/05/18 02:06:01 {File:zip.txt Lines:42}
 ```
 <!--/tmpl-->
 
@@ -35,7 +36,7 @@ $ eg-helloworld --file zip.txt --lines 42
 $ eg-helloworld --help
 ```
 
-<!--tmpl,chomp,code=plain:go build -o eg-helloworld && ./eg-helloworld --help ; rm eg-helloworld -->
+<!--tmpl,code=plain:go build -o eg-helloworld && ./eg-helloworld --help ; rm eg-helloworld -->
 ``` plain 
 
   Usage: eg-helloworld [options]

@@ -1,6 +1,6 @@
 ## cmds example
 
-<!--tmpl,chomp,code=go:cat main.go -->
+<!--tmpl,code=go:cat main.go -->
 ``` go 
 package main
 
@@ -19,7 +19,7 @@ type Config struct {
 
 func main() {
 	c := Config{}
-	opts.NewNamed(&c, "eg-commands-inline").
+	opts.New(&c).
 		Parse().
 		Run()
 }
@@ -35,8 +35,8 @@ func (f *Foo) Run() error {
 }
 
 type Bar struct {
-	Ping string
-	Pong string
+	Zip string
+	Zap string
 }
 
 func (b *Bar) Run() error {
@@ -50,21 +50,9 @@ func (b *Bar) Run() error {
 $ cmds bar --zip hello --zap world
 ```
 
-<!--tmpl,chomp,code=plain:go run main.go bar --zip hello --zap world -->
+<!--tmpl,code=plain:go run main.go bar --zip hello --zap world -->
 ``` plain 
-
-  Usage: eg-commands-inline bar [options]
-
-  command two of two
-
-  Options:
-  --ping, -p
-  --pong
-  --help, -h  display help
-
-  Error:
-    flag provided but not defined: -zip
-
+2019/05/18 02:05:51 bar: &{Zip:hello Zap:world}
 ```
 <!--/tmpl-->
 
@@ -72,7 +60,7 @@ $ cmds bar --zip hello --zap world
 $ cmds --help
 ```
 
-<!--tmpl,chomp,code=plain:go build -o eg-commands-inline && ./eg-commands-inline --help ; rm eg-commands-inline -->
+<!--tmpl,code=plain:go build -o eg-commands-inline && ./eg-commands-inline --help ; rm eg-commands-inline -->
 ``` plain 
 
   Usage: eg-commands-inline [options] <command>
@@ -81,8 +69,8 @@ $ cmds --help
   --help, -h  display help
 
   Commands:
-  • foo - This text also becomes commands summary text
-  • bar - command two of two
+  · foo - This text also becomes commands summary text
+  · bar - command two of two
 
 ```
 <!--/tmpl-->

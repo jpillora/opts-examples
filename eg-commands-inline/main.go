@@ -15,7 +15,7 @@ type Config struct {
 
 func main() {
 	c := Config{}
-	opts.NewNamed(&c, "eg-commands-inline").
+	opts.New(&c).
 		Parse().
 		Run()
 }
@@ -31,8 +31,8 @@ func (f *Foo) Run() error {
 }
 
 type Bar struct {
-	Ping string
-	Pong string
+	Zip string
+	Zap string
 }
 
 func (b *Bar) Run() error {

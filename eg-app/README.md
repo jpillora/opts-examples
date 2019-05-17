@@ -2,13 +2,13 @@
 
 _`main.go`_
 
-<!--tmpl,chomp,code=go:cat main.go -->
+<!--tmpl,code=go:cat main.go -->
 ``` go 
 package main
 
 import (
 	"github.com/jpillora/opts"
-	"github.com/jpillora/opts/example/eg-app/foo"
+	"github.com/jpillora/opts-examples/eg-app/foo"
 )
 
 //set this via ldflags (see https://stackoverflow.com/q/11354518)
@@ -30,7 +30,7 @@ func main() {
 
 _`foo/foo.go`_
 
-<!--tmpl,chomp,code=go:cat foo/foo.go -->
+<!--tmpl,code=go:cat foo/foo.go -->
 ``` go 
 package foo
 
@@ -59,7 +59,7 @@ $ go build -ldflags "-X main.version=0.2.6" -o foo
 $ ./foo --help
 ```
 
-<!--tmpl,chomp,code=plain:go build -ldflags "-X main.version=0.2.6" -o eg-app && ./eg-app --help ; rm eg-app -->
+<!--tmpl,code=plain:go build -ldflags "-X main.version=0.2.6" -o eg-app && ./eg-app --help ; rm eg-app -->
 ``` plain 
 
   Usage: eg-app [options]
@@ -80,7 +80,7 @@ $ ./foo --help
     0.2.6
 
   Read more:
-    https://github.com/jpillora/opts
+    https://github.com/jpillora/opts-examples
 
 ```
 <!--/tmpl-->

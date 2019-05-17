@@ -4,7 +4,7 @@ import (
 	"log"
 
 	"github.com/jpillora/opts-examples/eg-commands-register/bar"
-	"github.com/jpillora/opts-v1"
+	"github.com/jpillora/opts"
 )
 
 func Register(parent opts.Opts) {

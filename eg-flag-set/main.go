@@ -7,7 +7,7 @@ import (
 
 func main() {
 	opts.New(&app{}).
-		ImportGlobalFlagSet().
+		EmbedGlobalFlagSet().
 		Complete().
 		SetLineWidth(90).
 		Parse().

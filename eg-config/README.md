@@ -1,6 +1,6 @@
 ## config example
 
-<!--tmpl,chomp,code=go:cat main.go -->
+<!--tmpl,code=go:cat main.go -->
 ``` go 
 package main
 
@@ -16,7 +16,6 @@ type Config struct {
 }
 
 func main() {
-	panic("TODO")
 	c := Config{}
 	opts.New(&c).
 		ConfigPath("config.json").
@@ -27,7 +26,7 @@ func main() {
 ```
 <!--/tmpl-->
 
-<!--tmpl,chomp,code=json:cat config.json -->
+<!--tmpl,code=json:cat config.json -->
 ``` json 
 {
 	"foo": "hello",
@@ -40,14 +39,10 @@ func main() {
 $ config --bar moon
 ```
 
-<!--tmpl,chomp,code=plain:go run main.go --bar moon -->
+<!--tmpl,code=plain:go run main.go --bar moon -->
 ``` plain 
-panic: TODO
-
-goroutine 1 [running]:
-main.main()
-	/Users/jpillora/Code/Go/src/github.com/jpillora/opts/example/eg-config/main.go:15 +0x39
-exit status 2
+hello
+world
 ```
 <!--/tmpl-->
 
@@ -55,12 +50,15 @@ exit status 2
 $ config --help
 ```
 
-<!--tmpl,chomp,code=plain:go build -o eg-config && ./eg-config --help ; rm eg-config -->
+<!--tmpl,code=plain:go build -o eg-config && ./eg-config --help ; rm eg-config -->
 ``` plain 
-panic: TODO
 
-goroutine 1 [running]:
-main.main()
-	/Users/jpillora/Code/Go/src/github.com/jpillora/opts/example/eg-config/main.go:15 +0x39
+  Usage: eg-config [options]
+
+  Options:
+  --foo, -f
+  --bar, -b
+  --help, -h  display help
+
 ```
 <!--/tmpl-->

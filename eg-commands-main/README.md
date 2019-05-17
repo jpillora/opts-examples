@@ -1,6 +1,6 @@
 ## eg-commands-inline example
 
-<!--tmpl,chomp,code=go:cat main.go -->
+<!--tmpl,code=go:cat main.go -->
 ``` go 
 package main
 
@@ -21,7 +21,7 @@ func main() {
 				),
 		).
 		Parse().
-		RunFatal()
+		Run()
 }
 
 type Foo struct {
@@ -29,9 +29,8 @@ type Foo struct {
 	Pong string
 }
 
-func (f *Foo) Run() error {
+func (f *Foo) Run() {
 	log.Printf("foo: %+v", f)
-	return nil
 }
 
 type Bar struct {
@@ -39,9 +38,8 @@ type Bar struct {
 	Zop string
 }
 
-func (b *Bar) Run() error {
+func (b *Bar) Run() {
 	log.Printf("bar: %+v", b)
-	return nil
 }
 ```
 <!--/tmpl-->
@@ -50,9 +48,9 @@ func (b *Bar) Run() error {
 $ eg-commands-inline foo bar --zip 2
 ```
 
-<!--tmpl,chomp,code=plain:go run main.go foo bar --zip 2 -->
+<!--tmpl,code=plain:go run main.go foo bar --zip 2 -->
 ``` plain 
-2019/05/12 20:22:00 bar: &{Zip:2 Zop:}
+2019/05/18 02:05:53 bar: &{Zip:2 Zop:}
 ```
 <!--/tmpl-->
 
@@ -60,7 +58,7 @@ $ eg-commands-inline foo bar --zip 2
 $ eg-commands-inline --help
 ```
 
-<!--tmpl,chomp,code=plain:go build -o eg-commands-inline && ./eg-commands-inline --help ; rm eg-commands-inline -->
+<!--tmpl,code=plain:go build -o eg-commands-inline && ./eg-commands-inline --help ; rm eg-commands-inline -->
 ``` plain 
 
   Usage: eg-commands-inline [options] <command>
@@ -69,7 +67,7 @@ $ eg-commands-inline --help
   --help, -h  display help
 
   Commands:
-  • foo
+  · foo
 
 ```
 <!--/tmpl-->

@@ -3,7 +3,7 @@ package main
 import (
 	"log"
 
-	"github.com/jpillora/opts-v1"
+	"github.com/jpillora/opts"
 )
 
 type Config struct{}

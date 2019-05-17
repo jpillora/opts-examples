@@ -12,7 +12,6 @@ type Config struct {
 }
 
 func main() {
-	panic("TODO")
 	c := Config{}
 	opts.New(&c).
 		ConfigPath("config.json").

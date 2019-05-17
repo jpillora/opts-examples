@@ -1,6 +1,6 @@
 ## simple example
 
-<!--tmpl,chomp,code=go:cat main.go -->
+<!--tmpl,code=go:cat main.go -->
 ``` go 
 package main
 
@@ -11,7 +11,7 @@ import (
 
 func main() {
 	opts.New(&app{}).
-		ImportGlobalFlagSet().
+		EmbedGlobalFlagSet().
 		Complete().
 		SetLineWidth(90).
 		Parse().
@@ -31,9 +31,9 @@ func (a *app) Run() {
 $ eg-flag-set -a
 ```
 
-<!--tmpl,chomp,code=plain:go run main.go -a -->
+<!--tmpl,code=plain:go run main.go -a -->
 ``` plain 
-I0512 20:22:06.469056   26202 main.go:21] hello from app via glog
+I0518 02:05:59.627158   10578 main.go:21] hello from app via glog
 ```
 <!--/tmpl-->
 
@@ -41,7 +41,7 @@ I0512 20:22:06.469056   26202 main.go:21] hello from app via glog
 $ eg-flag-set --help
 ```
 
-<!--tmpl,chomp,code=plain:go build -o eg-flag-set && ./eg-flag-set --help ; rm eg-flag-set -->
+<!--tmpl,code=plain:go build -o eg-flag-set && ./eg-flag-set --help ; rm eg-flag-set -->
 ``` plain 
 
   Usage: eg-flag-set [options]

@@ -13,9 +13,12 @@ import (
 func main() {
 	type config struct {
 		Directory string `opts:"help=examples directory"`
-		Filter    string `opts:"mode=arg,help=string to filter which examples are generated"`
+		Filter    string `opts:"help=string to filter which examples are generated"`
 	}
-	c := config{Directory: "."}
+	c := config{
+		Directory: ".",
+		Filter:    "",
+	}
 	opts.Parse(&c)
 	egs, err := ioutil.ReadDir(c.Directory)
 	check(err)
