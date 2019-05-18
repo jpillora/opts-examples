@@ -9,6 +9,8 @@ import (
 type Config struct{}
 
 func main() {
+	//register a tree of commands
+	//using the fluent API
 	opts.New(&Config{}).
 		AddCommand(
 			opts.New(&Foo{}).
