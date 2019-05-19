@@ -13,15 +13,15 @@ type Config struct {
 }
 
 type Foo struct {
-	Ping  string
-	Pong  string
-	Files []opts.File
+	Ping string
+	Pong string
+	// Files []opts.File
 }
 
 type Bar struct {
 	Zip string
 	Zop string
-	Dir opts.Dir
+	// Dir opts.Dir
 }
 
 func main() {
