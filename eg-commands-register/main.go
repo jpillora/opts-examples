@@ -10,7 +10,8 @@ type cmd struct{}
 func main() {
 	c := cmd{}
 	//default name for the root command (package main) is the binary name
-	o := opts.New(&c)
-	foo.Register(o)
-	o.Parse().RunFatal()
+	opts.New(&c).
+		Call(foo.Register).
+		Parse().
+		RunFatal()
 }

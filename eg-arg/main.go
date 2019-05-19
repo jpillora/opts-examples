@@ -1,7 +1,7 @@
 package main
 
 import (
-	"log"
+	"fmt"
 
 	"github.com/jpillora/opts"
 )
@@ -14,5 +14,5 @@ type Config struct {
 func main() {
 	c := Config{}
 	opts.New(&c).Parse()
-	log.Printf("%+v", c)
+	fmt.Printf("%+v\n", c)
 }

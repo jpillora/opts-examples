@@ -7,7 +7,7 @@ package main
 import "github.com/jpillora/opts"
 
 type HelpConfig struct {
-	Zip  string `opts:"mode=arg,<zip> is a required arg which lorem ipsum dolor sit amet, consectetur adipiscing elit"`
+	Zip  string `opts:"mode=arg" help:"<zip> is a required arg which lorem ipsum dolor sit amet, consectetur adipiscing elit"`
 	Foo  string `help:"this is help for foo"`
 	Bar  int    `help:"and help for bar"`
 	Fizz string `help:"lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at commodo odio. Sed id tincidunt purus. Cras vel felis dictum, lobortis metus a, tempus tellus, and fizz"`
@@ -41,14 +41,25 @@ $ eg-help --help
 
   The help program demonstrates how to customise the help text
 
+  <zip> is a required arg which lorem ipsum dolor sit amet, consectetur
+  adipiscing elit
+
+  Options:
+  --foo, -f      this is help for foo (default 42)
+  --bar, -b      and help for bar
+  --fizz         lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                 Phasellus at commodo odio. Sed id tincidunt purus. Cras
+                 vel felis dictum, lobortis metus a, tempus tellus, and
+                 fizz
+  --buzz         and help for buzz
+  --version, -v  display version
+  --help, -h     display help
+
   Version:
     1.0.0
 
   Read more:
     https://github.com/jpillora/foo
-
-  Error:
-    field 'Zip' unused opts keys:  consectetur adipiscing elit, <zip> is a required arg which lorem ipsum dolor sit amet
 
 ```
 <!--/tmpl-->

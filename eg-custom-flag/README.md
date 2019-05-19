@@ -6,6 +6,7 @@ package main
 
 import (
 	"fmt"
+	"net"
 	"os"
 	"strconv"
 	"time"
@@ -14,15 +15,19 @@ import (
 )
 
 type Config struct {
-	Mmm   []MagicInt
+	Mmm   MagicInt
 	Bar   time.Duration
 	Zee   bool
+	IP    net.IP
 	Files []File
 	Dir   Dir
 }
 
 func main() {
-	c := Config{}
+	c := Config{
+		Mmm: 1,
+		IP:  net.ParseIP("1.1.1.1"),
+	}
 	opts.Parse(&c)
 	fmt.Printf("%+v\n", c)
 }
@@ -98,9 +103,10 @@ $ eg-custom-flag --foo 2m --bar 5 --bazz 5
   Usage: main [options]
 
   Options:
-  --mmm, -m   allows multiple
+  --mmm, -m   default {1}
   --bar, -b
   --zee, -z
+  --ip, -i    default 1.1.1.1
   --file, -f  allows multiple
   --dir, -d
   --help, -h  display help
@@ -121,9 +127,10 @@ $ eg-custom-flag --help
   Usage: eg-custom-flag [options]
 
   Options:
-  --mmm, -m   allows multiple
+  --mmm, -m   default {1}
   --bar, -b
   --zee, -z
+  --ip, -i    default 1.1.1.1
   --file, -f  allows multiple
   --dir, -d
   --help, -h  display help

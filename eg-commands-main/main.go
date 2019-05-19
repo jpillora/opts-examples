@@ -1,7 +1,7 @@
 package main
 
 import (
-	"log"
+	"fmt"
 
 	"github.com/jpillora/opts"
 )
@@ -9,8 +9,6 @@ import (
 type Config struct{}
 
 func main() {
-	//register a tree of commands
-	//using the fluent API
 	opts.New(&Config{}).
 		AddCommand(
 			opts.New(&Foo{}).
@@ -28,7 +26,7 @@ type Foo struct {
 }
 
 func (f *Foo) Run() {
-	log.Printf("foo: %+v", f)
+	fmt.Printf("foo: %+v\n", f)
 }
 
 type Bar struct {
@@ -37,5 +35,5 @@ type Bar struct {
 }
 
 func (b *Bar) Run() {
-	log.Printf("bar: %+v", b)
+	fmt.Printf("bar: %+v\n", b)
 }

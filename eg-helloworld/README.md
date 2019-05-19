@@ -5,7 +5,7 @@
 package main
 
 import (
-	"log"
+	"fmt"
 
 	"github.com/jpillora/opts"
 )
@@ -17,7 +17,7 @@ func main() {
 	}
 	c := config{}
 	opts.Parse(&c)
-	log.Printf("%+v", c)
+	fmt.Printf("%+v\n", c)
 }
 ```
 <!--/tmpl-->
@@ -28,7 +28,7 @@ $ eg-helloworld --file zip.txt --lines 42
 
 <!--tmpl,code=plain:go run main.go --file zip.txt --lines 42 -->
 ``` plain 
-2019/05/18 02:06:01 {File:zip.txt Lines:42}
+{File:zip.txt Lines:42}
 ```
 <!--/tmpl-->
 

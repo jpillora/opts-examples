@@ -33,7 +33,7 @@ $ eg-flag-set -a
 
 <!--tmpl,code=plain:go run main.go -a -->
 ``` plain 
-I0518 02:05:59.627158   10578 main.go:21] hello from app via glog
+I0519 22:53:44.607289   69530 main.go:21] hello from app via glog
 ```
 <!--/tmpl-->
 

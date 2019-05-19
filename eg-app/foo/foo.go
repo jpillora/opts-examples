@@ -1,5 +1,7 @@
 package foo
 
+import "fmt"
+
 type App struct {
 	//configurable fields
 	Ping string
@@ -14,5 +16,5 @@ type App struct {
 func (a *App) Run() {
 	a.bar = 42 + a.Zip
 	a.bazz = 21 + a.Zop
-	println("App is running: %+v", a)
+	fmt.Printf("App is running: %+v\n", a)
 }

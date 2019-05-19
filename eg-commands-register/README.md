@@ -1,4 +1,6 @@
-## commands using the `Register` pattern
+## Commands example (individual packages)
+
+Here, we're using `Call` to implement the register pattern, in order to add other `Opts` instances into our root instance:
 
 _`main.go`_
 
@@ -15,9 +17,11 @@ type cmd struct{}
 
 func main() {
 	c := cmd{}
-	o := opts.New(&c)
-	foo.Register(o)
-	o.Parse().RunFatal()
+	//default name for the root command (package main) is the binary name
+	opts.New(&c).
+		Call(foo.Register).
+		Parse().
+		RunFatal()
 }
 ```
 <!--/tmpl-->
@@ -29,17 +33,16 @@ _`foo/cmd.go`_
 package foo
 
 import (
-	"log"
+	"fmt"
 
-	"github.com/jpillora/opts-examples/eg-commands-register/bar"
 	"github.com/jpillora/opts"
+	"github.com/jpillora/opts-examples/eg-commands-register/bar"
 )
 
 func Register(parent opts.Opts) {
 	c := cmd{}
-	//NOTE: default name for a subcommand is its package name ("foo")
-	o := opts.New(&c)
-	bar.Register(o)
+	//default name for a subcommand is its package name ("foo")
+	o := opts.New(&c).Call(bar.Register)
 	parent.AddCommand(o)
 }
 
@@ -49,7 +52,7 @@ type cmd struct {
 }
 
 func (f *cmd) Run() error {
-	log.Printf("foo: %+v", f)
+	fmt.Printf("foo: %+v\n", f)
 	return nil
 }
 ```
@@ -68,7 +71,7 @@ $ ./eg-commands-register --help
   --help, -h  display help
 
   Commands:
-  · cmd
+  · foo
 
 ```
 <!--/tmpl-->

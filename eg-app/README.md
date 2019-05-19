@@ -34,6 +34,8 @@ _`foo/foo.go`_
 ``` go 
 package foo
 
+import "fmt"
+
 type App struct {
 	//configurable fields
 	Ping string
@@ -48,18 +50,18 @@ type App struct {
 func (a *App) Run() {
 	a.bar = 42 + a.Zip
 	a.bazz = 21 + a.Zop
-	println("App is running: %+v", a)
+	fmt.Printf("App is running: %+v\n", a)
 }
 ```
 <!--/tmpl-->
 
 ```sh
 # build program and set 'version' at compile time
-$ go build -ldflags "-X main.version=0.2.6" -o foo
-$ ./foo --help
+$ go build -ldflags "-X main.version=0.2.6" -o eg-app
+$ ./eg-app --help
 ```
 
-<!--tmpl,code=plain:go build -ldflags "-X main.version=0.2.6" -o eg-app && ./eg-app --help ; rm eg-app -->
+<!--tmpl,code=plain:go build -ldflags "-X main.version=0.2.6" -o eg-app && ./eg-app --help -->
 ``` plain 
 
   Usage: eg-app [options]
@@ -82,5 +84,16 @@ $ ./foo --help
   Read more:
     https://github.com/jpillora/opts-examples
 
+```
+<!--/tmpl-->
+
+```sh
+# run program
+$ ./eg-app --zip7
+```
+
+<!--tmpl,code=plain:./eg-app --zip 7; rm eg-app -->
+``` plain 
+App is running: &{Ping:hello Pong:world Zip:7 Zop:0 bar:49 bazz:21}
 ```
 <!--/tmpl-->

@@ -1,11 +1,13 @@
-## eg-commands-inline example
+## Commands example (main package)
+
+Here, we're using `AddCommand` to add other `Opts` instances into our root instance:
 
 <!--tmpl,code=go:cat main.go -->
 ``` go 
 package main
 
 import (
-	"log"
+	"fmt"
 
 	"github.com/jpillora/opts"
 )
@@ -30,7 +32,7 @@ type Foo struct {
 }
 
 func (f *Foo) Run() {
-	log.Printf("foo: %+v", f)
+	fmt.Printf("foo: %+v\n", f)
 }
 
 type Bar struct {
@@ -39,7 +41,7 @@ type Bar struct {
 }
 
 func (b *Bar) Run() {
-	log.Printf("bar: %+v", b)
+	fmt.Printf("bar: %+v\n", b)
 }
 ```
 <!--/tmpl-->
@@ -50,7 +52,7 @@ $ eg-commands-inline foo bar --zip 2
 
 <!--tmpl,code=plain:go run main.go foo bar --zip 2 -->
 ``` plain 
-2019/05/18 02:05:53 bar: &{Zip:2 Zop:}
+bar: &{Zip:2 Zop:}
 ```
 <!--/tmpl-->
 

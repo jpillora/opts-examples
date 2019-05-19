@@ -1,32 +1,55 @@
 package main
 
 import (
+	"fmt"
+	"strings"
+
 	"github.com/jpillora/opts"
 )
 
 type Config struct {
-	Alpha   string
-	Charlie string
-	Delta   string
-	Foo     `opts:"mode=cmd"`
-	Bar     `opts:"mode=cmd"`
+	Alpha string
+	Beta  myEnum
+	Delta `opts:"mode=cmd"`
+	Echo  `opts:"mode=cmd"`
 }
 
-type Foo struct {
-	Ping string
-	Pong string
-	// Files []opts.File
-}
-
-type Bar struct {
-	Zip string
+type Delta struct {
+	Zip bool
 	Zop string
-	// Dir opts.Dir
+	Dir string
+}
+
+type Echo struct {
+	Ping  bool
+	Pong  string
+	Files []string
 }
 
 func main() {
-	config := Config{}
-	opts.New(&config).
+	c := Config{}
+	opts.New(&c).
 		Complete().
 		Parse()
+	fmt.Printf("%+v\n", c)
+}
+
+//myEnum implements completer and setter
+//to provide an enum-like field
+type myEnum string
+
+var valid = []string{"a", "b", "c"}
+
+func (myEnum) Complete(s string) []string {
+	return valid
+}
+
+func (e *myEnum) Set(s string) error {
+	for _, v := range valid {
+		if s == v {
+			*e = myEnum(s)
+			return nil
+		}
+	}
+	return fmt.Errorf("must be one of: %v", strings.Join(valid, ", "))
 }

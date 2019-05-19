@@ -5,7 +5,7 @@
 package main
 
 import (
-	"log"
+	"fmt"
 
 	"github.com/jpillora/opts"
 )
@@ -22,7 +22,7 @@ func main() {
 	opts.New(&c).
 		// UseEnv().
 		Parse()
-	log.Printf("%+v", c)
+	fmt.Printf("%+v\n", c)
 }
 ```
 <!--/tmpl-->
@@ -35,7 +35,7 @@ $ go run env.go
 
 <!--tmpl,code=plain:(export FOO=hello && export BAR=world && go run main.go) -->
 ``` plain 
-2019/05/18 02:05:58 {Foo:hello Bar:world}
+{Foo:hello Bar:world}
 ```
 <!--/tmpl-->
 

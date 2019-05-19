@@ -1,7 +1,7 @@
 package main
 
 import (
-	"log"
+	"fmt"
 
 	"github.com/jpillora/opts"
 )
@@ -18,5 +18,5 @@ func main() {
 	opts.New(&c).
 		// UseEnv().
 		Parse()
-	log.Printf("%+v", c)
+	fmt.Printf("%+v\n", c)
 }

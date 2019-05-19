@@ -1,7 +1,7 @@
 package bar
 
 import (
-	"log"
+	"fmt"
 
 	"github.com/jpillora/opts"
 )
@@ -19,6 +19,6 @@ type cmd struct {
 }
 
 func (b *cmd) Run() error {
-	log.Printf("bar: %+v", b)
+	fmt.Printf("bar: %+v\n", b)
 	return nil
 }

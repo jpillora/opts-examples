@@ -5,7 +5,7 @@
 package main
 
 import (
-	"log"
+	"fmt"
 
 	"github.com/jpillora/opts"
 )
@@ -13,8 +13,9 @@ import (
 type Config struct {
 	Fizz string
 	Buzz bool
-	//Foo has an implicit `opts:"mode=embedded,group=Foo"`.
-	//Could be be merged with config by unsetting group `opts:"group="`.
+	//Foo has an implicit "mode=embedded,group=Foo", it
+	//could be be merged into the default group by
+	//unsetting group "group=".
 	Foo
 	Ping, Pong int `opts:"group=More"`
 }
@@ -27,7 +28,7 @@ type Foo struct {
 func main() {
 	c := Config{}
 	opts.Parse(&c)
-	log.Printf("%+v", c)
+	fmt.Printf("%+v\n", c)
 }
 ```
 <!--/tmpl-->

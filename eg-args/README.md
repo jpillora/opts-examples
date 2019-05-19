@@ -5,7 +5,7 @@
 package main
 
 import (
-	"log"
+	"fmt"
 
 	"github.com/jpillora/opts"
 )
@@ -18,7 +18,7 @@ type Config struct {
 func main() {
 	c := Config{}
 	opts.New(&c).Parse()
-	log.Printf("%+v", c)
+	fmt.Printf("%+v\n", c)
 }
 ```
 <!--/tmpl-->
@@ -29,7 +29,7 @@ $ eg-args foo bar
 
 <!--tmpl,code=plain:go run main.go foo bar -->
 ``` plain 
-2019/05/18 02:05:50 {Shark:foo Octopi:[bar]}
+{Shark:foo Octopi:[bar]}
 ```
 <!--/tmpl-->
 

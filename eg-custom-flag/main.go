@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"net"
 	"os"
 	"strconv"
 	"time"
@@ -10,15 +11,19 @@ import (
 )
 
 type Config struct {
-	Mmm   []MagicInt
+	Mmm   MagicInt
 	Bar   time.Duration
 	Zee   bool
+	IP    net.IP
 	Files []File
 	Dir   Dir
 }
 
 func main() {
-	c := Config{}
+	c := Config{
+		Mmm: 1,
+		IP:  net.ParseIP("1.1.1.1"),
+	}
 	opts.Parse(&c)
 	fmt.Printf("%+v\n", c)
 }

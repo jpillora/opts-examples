@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"io/ioutil"
 	"log"
 	"path/filepath"
@@ -12,8 +13,9 @@ import (
 
 func main() {
 	type config struct {
-		Directory string `opts:"help=examples directory"`
-		Filter    string `opts:"help=string to filter which examples are generated"`
+		Directory string `help:"examples directory"`
+		Filter    string `help:"string to filter which examples are generated"`
+		Preview   bool   `help:"display all shell commands in all files"`
 	}
 	c := config{
 		Directory: ".",
@@ -31,8 +33,8 @@ func main() {
 			continue
 		}
 		check(err)
+		processReadme(eg, c.Preview)
 		processGo(eg)
-		processReadme(eg)
 	}
 }
 
@@ -47,11 +49,17 @@ func processGo(eg string) {
 	}
 }
 
-func processReadme(eg string) {
+func processReadme(eg string, preview bool) {
 	fp := filepath.Join(eg, "README.md")
 	b, err := ioutil.ReadFile(fp)
 	if err != nil {
 		log.Printf("example '%s' has no README.md file", eg)
+		return
+	}
+	if preview {
+		for i, c := range mdtmpl.Commands(b) {
+			fmt.Printf("%18s#%d %s\n", eg, i+1, c)
+		}
 		return
 	}
 	b = mdtmpl.ExecuteIn(b, eg)

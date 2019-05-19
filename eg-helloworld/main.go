@@ -1,7 +1,7 @@
 package main
 
 import (
-	"log"
+	"fmt"
 
 	"github.com/jpillora/opts"
 )
@@ -13,5 +13,5 @@ func main() {
 	}
 	c := config{}
 	opts.Parse(&c)
-	log.Printf("%+v", c)
+	fmt.Printf("%+v\n", c)
 }
