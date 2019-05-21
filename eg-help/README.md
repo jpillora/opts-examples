@@ -41,16 +41,14 @@ $ eg-help --help
 
   The help program demonstrates how to customise the help text
 
-  <zip> is a required arg which lorem ipsum dolor sit amet, consectetur
-  adipiscing elit
+  <zip> is a required arg which lorem ipsum dolor sit amet, consectetur adipiscing elit
 
   Options:
   --foo, -f      this is help for foo (default 42)
   --bar, -b      and help for bar
-  --fizz         lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                 Phasellus at commodo odio. Sed id tincidunt purus. Cras
-                 vel felis dictum, lobortis metus a, tempus tellus, and
-                 fizz
+  --fizz         lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at commodo odio.
+                 Sed id tincidunt purus. Cras vel felis dictum, lobortis metus a, tempus tellus,
+                 and fizz
   --buzz         and help for buzz
   --version, -v  display version
   --help, -h     display help

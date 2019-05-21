@@ -11,12 +11,9 @@ import (
 )
 
 type Config struct {
-	Fizz string
-	Buzz bool
-	//Foo has an implicit "mode=embedded,group=Foo", it
-	//could be be merged into the default group by
-	//unsetting group "group=".
-	Foo
+	Fizz       string
+	Buzz       bool
+	Foo        `opts:"group=Foo"`
 	Ping, Pong int `opts:"group=More"`
 }
 
