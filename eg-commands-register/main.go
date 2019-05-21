@@ -11,7 +11,7 @@ func main() {
 	c := cmd{}
 	//default name for the root command (package main) is the binary name
 	opts.New(&c).
-		Call(foo.Register).
+		AddCommand(foo.New()).
 		Parse().
 		RunFatal()
 }

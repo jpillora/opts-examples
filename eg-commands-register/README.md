@@ -1,6 +1,6 @@
 ## Commands example (individual packages)
 
-Here, we're using `Call` to implement the register pattern, in order to add other `Opts` instances into our root instance:
+Here, we're adding `Opts` instances from other packages into our root instance:
 
 _`main.go`_
 
@@ -19,7 +19,7 @@ func main() {
 	c := cmd{}
 	//default name for the root command (package main) is the binary name
 	opts.New(&c).
-		Call(foo.Register).
+		AddCommand(foo.New()).
 		Parse().
 		RunFatal()
 }
@@ -39,11 +39,10 @@ import (
 	"github.com/jpillora/opts-examples/eg-commands-register/bar"
 )
 
-func Register(parent opts.Opts) {
+func New() opts.Opts {
 	c := cmd{}
 	//default name for a subcommand is its package name ("foo")
-	o := opts.New(&c).Call(bar.Register)
-	parent.AddCommand(o)
+	return opts.New(&c).AddCommand(bar.New())
 }
 
 type cmd struct {
