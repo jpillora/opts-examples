@@ -16,7 +16,8 @@ func main() {
 	//see default templates and the default template order
 	//in the opts/help.go file
 	o := opts.New(&c).
-		DocAfter("usage", "mytext", "\nthis is a some text!\n"). //add new entry
+		Summary("some text under usage").
+		DocAfter("summary", "mytext", "\nand a raw template under the summary!\n"). //add new entry
 		Repo("myfoo.com/bar").
 		DocSet("repo", "\nMy awesome repo:\n  {{.Repo}}"). //change existing entry
 		Parse()
