@@ -1,4 +1,4 @@
-## helloworld example
+## repeated flag example
 
 <!--tmpl,code=go:cat main.go -->
 ``` go 

@@ -1,4 +1,4 @@
-## custom help example
+## advanced help example
 
 <!--tmpl,code=go:cat main.go -->
 ``` go 

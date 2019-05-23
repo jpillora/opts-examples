@@ -93,27 +93,13 @@ func (d *Dir) Set(s string) error {
 <!--/tmpl-->
 
 ```sh
-#NOTE: 5 + 42 = 47
-$ eg-custom-flag --foo 2m --bar 5 --bazz 5
+#NOTE: m => 5 + 42 => 47
+$ eg-custom-flag -m 5 --bar 2m --ip 1.1.1.1
 ```
 
-<!--tmpl,code=plain:go run main.go --foo 2m --bar 5 --bazz 5 -->
+<!--tmpl,code=plain:go run main.go -m 5 --bar 2m --ip 1.1.1.1 -->
 ``` plain 
-
-  Usage: main [options]
-
-  Options:
-  --mmm, -m   default {1}
-  --bar, -b
-  --zee, -z
-  --ip, -i    default 1.1.1.1
-  --file, -f  allows multiple
-  --dir, -d
-  --help, -h  display help
-
-  Error:
-    flag provided but not defined: -foo
-
+{Mmm:{47} Bar:2m0s Zee:false IP:1.1.1.1 Files:[] Dir:}
 ```
 <!--/tmpl-->
 
